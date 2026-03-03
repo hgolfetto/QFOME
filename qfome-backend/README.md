@@ -1,45 +1,30 @@
-# QFome Backend (setup de infra)
+# QFome Backend (MVP simples)
 
-Projeto backend inicial do QFome com Spring Boot + Maven.
+Backend inicial do QFome com foco em simplicidade para apresentacao de MVP.
 
-## Stack
+## O que tem aqui
 - Java 21
 - Spring Boot 3.5
 - Spring Web
 - Spring Actuator
 - Spring Data JPA
-- Flyway
-- H2 (dev)
-- PostgreSQL (prod)
+- H2 em arquivo local (sem Docker e sem Postgres)
 
-## Rodar local (dev)
-```bash
-./mvnw spring-boot:run
-```
-
+## Rodar local
 No Windows:
 ```bash
 mvnw.cmd spring-boot:run
 ```
 
-## Healthcheck
-```txt
-GET http://localhost:8080/actuator/health
-```
-
-## Banco Postgres (opcional no MVP)
-Subir banco:
+No Linux/Mac:
 ```bash
-docker compose up -d
+./mvnw spring-boot:run
 ```
 
-Rodar backend em prod:
-```bash
-mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=prod
-```
+## Endpoints uteis
+- Health: `GET http://localhost:8080/actuator/health`
+- Console H2: `http://localhost:8080/h2-console`
 
-## Arquivos de configuracao
-- `src/main/resources/application.yml`: config base
-- `src/main/resources/application-dev.yml`: profile dev com H2
-- `src/main/resources/application-prod.yml`: profile prod com Postgres
-- `.env.example`: variaveis de ambiente
+## Configuracoes
+- `src/main/resources/application.yml`: config unica do projeto
+- `.env.example`: variaveis basicas (porta e CORS)

@@ -1,4 +1,4 @@
-package com.qfome.domain.enums;
+package com.qfome.model.enums;
 
 public enum FormaPagamento {
     PIX,
